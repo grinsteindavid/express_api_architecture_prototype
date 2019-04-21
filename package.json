@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^7.0.0",
     "express": "^4.16.4",
-    "morgan": "^1.9.1"
+    "express-handlebars": "^3.0.2",
+    "kue": "^0.11.6",
+    "morgan": "^1.9.1",
+    "nodemailer": "^6.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }
