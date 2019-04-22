@@ -32,7 +32,7 @@ module.exports = {
 		    subject: `New client ${client.name}`,
 		    to: client.email,
 		    client: client,
-		    template: `<p>Welcome ${client.name}</p>`
+		    template: 'new_client'
 		})
 		.delay(3000)
 	    .priority('high')

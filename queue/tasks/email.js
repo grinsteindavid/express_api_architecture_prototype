@@ -1,13 +1,16 @@
-const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer")
+const pug = require('pug')
 
 module.exports = async (job, done) => {
 	console.log('job email', JSON.stringify(job))
 
 	const to = job.data.to
 	const subject = job.data.subject
+	const client = job.data.client
 	const template = job.data.template
 
 	try {
+
 		// Generate test SMTP service account from ethereal.email
 		// Only needed if you don't have a real mail account for testing
 		let testAccount = await nodemailer.createTestAccount();
@@ -29,7 +32,10 @@ module.exports = async (job, done) => {
 		to: to, // list of receivers
 		subject: subject, // Subject line
 		//text: "Hello world?", // plain text body
-		html: template // html body
+		html: pug.renderFile(`views/emails/${template}.pug`, {
+				  subject: subject,
+				  client: client
+				}) // html body
 		});
 
 		console.log("Message sent: %s", info.messageId);
