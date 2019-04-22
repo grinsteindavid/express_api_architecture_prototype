@@ -1,7 +1,10 @@
 require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
+const crons = require('./crons')
 const app = express()
+
+crons()
 
 app.use(morgan('tiny'))
 app.use(express.json())
