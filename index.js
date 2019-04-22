@@ -4,8 +4,6 @@ const morgan = require('morgan')
 const crons = require('./crons')
 const app = express()
 
-crons()
-
 app.use(morgan('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -18,4 +16,4 @@ app.use((err, request, response, next) => {
   response.status(500).send('Something broke!')
 })
 
-app.listen(3000)
+app.listen(3000, () => crons() )
