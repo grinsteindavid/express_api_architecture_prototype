@@ -1,4 +1,3 @@
-const queue = require('../../queue')
 
 module.exports = {
 	all: (request, response) => {
@@ -28,7 +27,7 @@ module.exports = {
 			email: request.body.email
 		}
 
-		const job = queue.create('email', {
+		const job = request.queue.create('email', {
 		    subject: `New client ${client.name}`,
 		    to: client.email,
 		    client: client,

@@ -12,4 +12,6 @@ const cron = require('node-cron')
 
 module.exports = () => {
 	cron.schedule('* * * * *', require('./tasks/log_every_min'))
+
+	cron.schedule('* * * * *', require('./tasks/print_working_directory'))
 }
