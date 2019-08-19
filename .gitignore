@@ -17,6 +17,7 @@ npm-debug.log*
 .sass-cache/
 .tmp/
 node_modules/
+/node_modules
 tmp/
 temp/
 $RECYCLE.BIN/

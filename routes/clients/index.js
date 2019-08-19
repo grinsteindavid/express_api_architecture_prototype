@@ -6,7 +6,7 @@ const validations = require('./validations')
 router.use('/:client([0-9]+)/albums', require('./albums'))
 
 router.get('/', actions.all)
-router.post('/', [...validations.create.conditions, validations.create.middleware], actions.create)
+router.post('/', [...validations.conditions.create, validations.errorsMiddleware], actions.create)
 router.get('/:client([0-9]+)', actions.show)
 
 module.exports = router
