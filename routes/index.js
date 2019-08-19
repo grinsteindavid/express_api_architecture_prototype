@@ -6,6 +6,7 @@ router.use(middlewares.auth)
 router.use(middlewares.date)
 router.use(middlewares.chance)
 router.use(middlewares.queue)
+router.use(middlewares.knex)
 router.use('/clients', require('./clients'))
 
 module.exports = router

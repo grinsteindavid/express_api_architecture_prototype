@@ -2,5 +2,6 @@ module.exports = {
 	auth: require('./auth'),
 	chance: require('./chance'),
 	date: require('./date'),
-	queue: require('./queue')
+	queue: require('./queue'),
+	knex: require('./knex')
 }
