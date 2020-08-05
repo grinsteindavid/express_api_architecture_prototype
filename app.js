@@ -1,8 +1,6 @@
-require('dotenv').config()
-const config = require('./config')
 const express = require('express')
 const morgan = require('morgan')
-const crons = require('./crons')
+
 const cors = require('cors')
 const app = express()
 
@@ -19,7 +17,4 @@ app.use((err, request, response, next) => {
   response.status(500).send('Something broke!')
 })
 
-app.listen(config.server.port|| 3000, () => {
-	console.log(`HTTP Server port ${config.server.port || 3000}`)
-	crons()
-})
+module.exports = app
