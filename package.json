@@ -15,7 +15,6 @@
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
     "express-validator": "^5.3.1",
-    "jest": "^26.2.2",
     "jsonwebtoken": "^8.5.1",
     "knex": "^0.19.2",
     "kue": "^0.11.6",
@@ -27,6 +26,8 @@
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
-    "nodemon": "^1.18.11"
+    "nodemon": "^1.18.11",
+    "supertest": "^4.0.2",
+    "jest": "^26.2.2"
   }
 }
