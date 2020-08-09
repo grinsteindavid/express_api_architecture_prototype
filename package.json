@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server",
+    "dev": "nodemon --inspect=0.0.0.0:${NODE_DEBUG_PORT} server.js",
     "test": "jest",
     "list:endpoints": "node ./scripts/list_endpoints.js"
   },

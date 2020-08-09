@@ -5,8 +5,25 @@ services:
     image: express_api_architecture_prototype
     build: .
     environment:
+      NODE_DEBUG_PORT: 9229
       NODE_ENV: development
+      PORT: 3000
+      REDIS_HOST: "redis"
+      REDIS_PORT: 6379
+      REDIS_AUTH: ""
+      DB_HOST: "localhost"
+      DB_USER: "root"
+      DB_PASSWORD: ""
+      DB_NAME: "api_test"
     ports:
-      - 3000
+      - 3000:3000
       - 9229:9229
-    command: node --inspect=0.0.0.0:9229 server.js
+    depends_on: 
+      - redis
+    volumes: 
+      - .:/home/node/app
+    command: sh -c "cd /home/node/app && yarn dev"
+  redis:
+    image: redis
+    ports:
+      - 6379
