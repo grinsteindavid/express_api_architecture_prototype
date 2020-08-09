@@ -1,4 +1,4 @@
-require('dotenv').config()
+// require('dotenv').config()
 const crons = require('./crons')
 const config = require('./config')
 const app = require('./app')
