@@ -6,7 +6,11 @@
   "scripts": {
     "dev": "nodemon --inspect=0.0.0.0:${NODE_DEBUG_PORT} server.js",
     "test": "jest",
-    "list:endpoints": "node ./scripts/list_endpoints.js"
+    "list:endpoints": "node ./scripts/list_endpoints.js",
+    "compose:status": "docker-compose ps -a",
+    "compose:down": "docker-compose down",
+    "compose:up-prod": "docker-compose up -d",
+    "compose:up-debug": "docker-compose -f docker-compose.debug.yml up -d"
   },
   "author": "",
   "license": "ISC",

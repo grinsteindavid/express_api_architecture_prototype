@@ -11,15 +11,16 @@ services:
       REDIS_HOST: "redis"
       REDIS_PORT: 6379
       REDIS_AUTH: ""
-      DB_HOST: "localhost"
+      DB_HOST: "mysql"
       DB_USER: "root"
-      DB_PASSWORD: ""
+      DB_PASSWORD: "root"
       DB_NAME: "api_test"
     ports:
       - 3000:3000
       - 9229:9229
     depends_on: 
       - redis
+      - mysql
     volumes: 
       - .:/home/node/app
     command: sh -c "cd /home/node/app && yarn dev"
@@ -27,3 +28,31 @@ services:
     image: redis
     ports:
       - 6379
+  redis_commander:
+    image: rediscommander/redis-commander
+    ports: 
+      - 6378:6378
+    depends_on:
+      - redis
+    environment:
+      PORT: 6378
+      REDIS_PORT: 6379
+      REDIS_HOST: "redis"
+  mysql:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_USER: "root"
+      MYSQL_ROOT_PASSWORD: "root"
+      MYSQL_DATABASE: "api_test"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+  mysql_admin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8080:80
+    environment: 
+      PMA_HOST: "mysql"
+    depends_on:
+      - mysql

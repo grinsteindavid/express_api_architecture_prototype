@@ -17,6 +17,8 @@ npm-debug.log*
 .sass-cache/
 .tmp/
 node_modules/
+mysql_data/
+/mysql_data
 /node_modules
 tmp/
 temp/
